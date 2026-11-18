@@ -3,19 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hypeloop Games | Roblox games that don't stop</title>
-<meta name="description" content="Hypeloop is a Roblox game studio building fast, replayable games. Join the community to play first.">
-<meta property="og:title" content="Hypeloop Games">
+<title>HypeLoop Games | Roblox games that don't stop</title>
+<meta name="description" content="HypeLoop is an independent Roblox studio making fast, social games that are fair to play. Play Catch & Steal now, Football Ultimate is coming soon.">
+<meta property="og:title" content="HypeLoop Games">
 <meta property="og:description" content="Roblox games that don't stop. Join the loop.">
-<meta property="og:image" content="og-image.png">
+<meta property="og:image" content="https://hypeloop.lol/og-image.png">
+<meta property="og:url" content="https://hypeloop.lol/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#5B21D6">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 512 512'><rect width='512' height='512' rx='0' fill='%235B21D6'/><g transform='rotate(-4 256 256)' stroke-linejoin='round' stroke-linecap='round' fill='none'><path transform='translate(0 16)' d='M256 256 C308 166 426 166 426 256 C426 346 308 346 256 256 C204 166 86 166 86 256 C86 346 204 346 256 256 Z' stroke='%2314102A' stroke-width='104'/><path d='M256 256 C308 166 426 166 426 256 C426 346 308 346 256 256 C204 166 86 166 86 256 C86 346 204 346 256 256 Z' stroke='%2314102A' stroke-width='104'/><path d='M256 256 C308 166 426 166 426 256 C426 346 308 346 256 256 C204 166 86 166 86 256 C86 346 204 346 256 256 Z' stroke='%23FFD60A' stroke-width='58'/></g></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@600;800;900&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/lilita-one-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts/fonts.css">
 <style>
 :root{--purple:#5B21D6;--purple-d:#4615B0;--yellow:#FFD60A;--ink:#14102A;--white:#fff;--muted:#E4DAFF}
 *{box-sizing:border-box}
@@ -49,6 +50,7 @@ nav.scrolled{background:rgba(70,21,176,.92);backdrop-filter:blur(8px);box-shadow
 .btn.white{background:var(--white)}
 .btn.small{min-height:44px;font-size:17px;padding:0 18px}
 .btn svg{width:22px;height:22px}
+.btn{white-space:nowrap}
 
 /* hero */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:110px 0 70px;overflow:hidden}
@@ -60,7 +62,7 @@ nav.scrolled{background:rgba(70,21,176,.92);backdrop-filter:blur(8px);box-shadow
 .ring:nth-child(4){width:42vw;height:34vh;animation-delay:.35s,1.8s;opacity:.08}
 @keyframes ring{to{transform:translate(-50%,-50%) scale(1)}}
 @keyframes breathe{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.04)}}
-.hero-in{position:relative;z-index:2;will-change:transform}
+.hero-in{position:relative;z-index:2;will-change:transform;padding:0 16px}
 .hero-logo{width:min(540px,86vw,58vh);height:auto;display:block;margin:0 auto;cursor:pointer;overflow:visible}
 .hero-logo .drop,.hero-logo .slide-l,.hero-logo .slide-r,.hero-logo .pop{transform-box:fill-box;transform-origin:center;animation-fill-mode:both;animation-duration:.6s;animation-timing-function:cubic-bezier(.34,1.8,.5,1)}
 .hero-logo .drop{animation-name:drop}
@@ -108,7 +110,14 @@ section{padding:110px 0}
 .badge{position:absolute;top:14px;left:14px;background:var(--yellow);border:3px solid var(--ink);border-radius:999px;padding:4px 12px;font-weight:900;font-size:13px;letter-spacing:1px}
 .card-body{padding:22px 24px 26px}
 .card-body h3{font-size:30px;margin-bottom:6px}
-.card-body p{margin:0;color:#3F3A55;line-height:1.5}
+.card-body p{margin:0 0 20px;color:#3F3A55;line-height:1.5}
+.card{display:flex;flex-direction:column}
+.card-body{flex:1;display:flex;flex-direction:column;align-items:flex-start}
+.card-btn{margin-top:auto}
+.badge.soon{background:var(--white)}
+.badge.live::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:#1FCB5B;border:2px solid var(--ink);margin-right:6px;vertical-align:1px}
+.games{padding-top:80px}
+.games .grid{grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr))}
 
 .perks{background:var(--purple-d);padding-top:70px;padding-bottom:70px}
 .perk{background:var(--purple);border:5px solid var(--ink);border-radius:24px;padding:30px;box-shadow:0 8px 0 var(--ink)}
@@ -120,8 +129,70 @@ section{padding:110px 0}
 .join .sec-sub{margin:0 auto 40px}
 .socials{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
 
-footer{background:var(--ink);color:#B9B0D6;padding:34px 0;font-size:14px}
-.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+footer{background:var(--ink);color:#B9B0D6;padding:56px 0 30px;font-size:14px}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center;border-top:1px solid #2E2650;padding-top:24px}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px;margin-bottom:36px}
+.foot-name{font-family:'Lilita One';font-size:24px;color:var(--white);letter-spacing:.5px}
+.foot-brand p{max-width:340px;line-height:1.55;margin:10px 0 0}
+.foot-col{display:flex;flex-direction:column;gap:10px}
+.foot-h{font-weight:900;color:var(--yellow);letter-spacing:2px;font-size:12px;text-transform:uppercase}
+.foot-col a{text-decoration:none;font-weight:700}
+.foot-col a:hover{color:var(--white)}
+.foot-legal{display:flex;gap:18px}
+.foot-legal a{font-weight:700;text-decoration:none}
+.foot-legal a:hover{color:var(--white)}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:center}
+.about p{color:var(--muted);font-size:17px;line-height:1.7;margin:0 0 16px;max-width:600px}
+.about .lead{color:var(--white);font-size:21px;font-weight:800;line-height:1.5}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fact{background:var(--white);color:var(--ink);border:5px solid var(--ink);border-radius:22px;box-shadow:0 8px 0 var(--ink);padding:22px 20px;display:flex;flex-direction:column;gap:6px}
+.fact:nth-child(even){transform:translateY(22px)}
+.fact-n{font-family:'Lilita One';font-size:52px;line-height:1;color:var(--purple)}
+.fact-t{font-weight:800;line-height:1.35;font-size:15px}
+
+/* vision */
+.vision{background:var(--ink);text-align:center;padding:100px 0;border-block:5px solid var(--ink)}
+.kicker.yellow{background:var(--yellow);color:var(--ink)}
+.vision-quote{font-family:'Lilita One';font-size:clamp(30px,4.4vw,52px);line-height:1.15;max-width:920px;margin:6px auto 22px}
+.vision-quote .hl{color:var(--yellow)}
+.vision-sub{color:#B9B0D6;font-size:18px;line-height:1.65;max-width:640px;margin:0 auto}
+
+/* principles */
+.grid-4{grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr))}
+.pcard{background:var(--white);color:var(--ink);border:5px solid var(--ink);border-radius:24px;box-shadow:0 8px 0 var(--ink);padding:26px}
+.pcard h3{font-size:25px;margin:0 0 8px}
+.pcard p{margin:0;color:#3F3A55;line-height:1.55}
+
+/* roadmap */
+.roadmap{padding-top:0}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:28px;counter-reset:s}
+.step{position:relative;background:var(--purple-d);border:5px solid var(--ink);border-radius:24px;padding:28px;box-shadow:0 8px 0 var(--ink)}
+.step h3{font-size:28px;margin:14px 0 8px}
+.step p{margin:0;color:var(--muted);line-height:1.55}
+.step-tag{display:inline-block;border:3px solid var(--ink);border-radius:999px;padding:4px 14px;font-weight:900;font-size:13px;letter-spacing:2px;color:var(--ink)}
+.step-tag.now{background:#1FCB5B}
+.step-tag.next{background:var(--yellow)}
+.step-tag.later{background:var(--white)}
+
+/* faq */
+.faq-wrap{display:grid;grid-template-columns:1fr 2fr;gap:48px;align-items:start}
+.faq-list{display:flex;flex-direction:column;gap:14px}
+.faq details{background:var(--white);color:var(--ink);border:4px solid var(--ink);border-radius:20px;box-shadow:0 6px 0 var(--ink);overflow:hidden}
+.faq summary{cursor:pointer;list-style:none;padding:18px 56px 18px 22px;font-weight:900;font-size:17px;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);font-family:'Lilita One';font-size:28px;color:var(--purple);transition:transform .2s}
+.faq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.faq details p{margin:0;padding:0 22px 20px;color:#3F3A55;line-height:1.6}
+
+@media (max-width:900px){
+ .about-grid,.faq-wrap{grid-template-columns:1fr;gap:36px}
+ .foot-top{grid-template-columns:1fr 1fr}
+ .foot-brand{grid-column:1/-1}
+ .nav-links{gap:18px}
+}
+@media (max-width:1000px){.nav-links a.txt[href="#roadmap"],.nav-links a.txt[href="#faq"]{display:none}}
 
 /* scroll reveal */
 .reveal{opacity:0;transform:translateY(50px) scale(.96);transition:opacity .7s ease,transform .7s cubic-bezier(.34,1.56,.64,1)}
@@ -175,7 +246,10 @@ footer{background:var(--ink);color:#B9B0D6;padding:34px 0;font-size:14px}
  <div class="wrap nav-in">
   <a class="brand" href="#top"><svg class="nav-icon" viewBox="40 120 432 272" aria-hidden="true"><g stroke-linecap="round" fill="none"><path d="M256 256 C308 166 426 166 426 256 C426 346 308 346 256 256 C204 166 86 166 86 256 C86 346 204 346 256 256 Z" stroke="#14102A" stroke-width="104"/><path d="M256 256 C308 166 426 166 426 256 C426 346 308 346 256 256 C204 166 86 166 86 256 C86 346 204 346 256 256 Z" stroke="#FFD60A" stroke-width="58"/></g></svg><span>HYPELOOP</span></a>
   <div class="nav-links">
-   <a class="txt" href="#perks">Why join</a>
+   <a class="txt" href="#games">Games</a>
+   <a class="txt" href="#about">About</a>
+   <a class="txt" href="#roadmap">Roadmap</a>
+   <a class="txt" href="#faq">FAQ</a>
    <a class="btn small" href="https://www.roblox.com/communities/856897138/HypeLoop" target="_blank" rel="noopener">Join the group</a>
   </div>
  </div>
@@ -194,11 +268,12 @@ footer{background:var(--ink);color:#B9B0D6;padding:34px 0;font-size:14px}
  <div class="float" style="--s:48px;--d:2.5s;--t:6s;right:24%;top:80%"><svg viewBox="0 0 100 100" aria-hidden="true"><g stroke="#14102A" stroke-width="5" stroke-linejoin="round"><polygon points="50,8 90,30 50,52 10,30" fill="#FFE66D"/><polygon points="10,30 50,52 50,95 10,72" fill="#FFD60A"/><polygon points="90,30 50,52 50,95 90,72" fill="#E0B400"/></g></svg></div>
  <div class="float" style="--s:40px;--d:2.6s;--t:4.2s;--r0:6deg;--r1:-10deg;left:26%;top:84%"><svg viewBox="0 0 100 100" aria-hidden="true"><g stroke="#14102A" stroke-width="5" stroke-linejoin="round"><polygon points="50,8 90,30 50,52 10,30" fill="#FFFFFF"/><polygon points="10,30 50,52 50,95 10,72" fill="#E4DAFF"/><polygon points="90,30 50,52 50,95 90,72" fill="#C2AEF7"/></g></svg></div>
  <div class="hero-in" id="heroIn">
-  <svg id="heroLogo" class="hero-logo" viewBox="292 63 617 546" role="img" aria-label="Hypeloop Games"><g transform="rotate(-4 600 330)"><g class="drop" style="animation-delay:0.55s"><path transform="translate(0 14) translate(332.97 280) scale(0.23 -0.23)" d="M594 17Q594 0 493.0 0.0Q392 0 392 17V247H252V17Q252 0 151.0 0.0Q50 0 50 17V680Q50 701 151.0 701.0Q252 701 252 680V445H392V678Q392 692 442 698Q468 700 493 700L544 698Q594 692 594 678Z" fill="#14102A" stroke="#14102A" stroke-width="156.5" stroke-linejoin="round"/><path transform="translate(332.97 280) scale(0.23 -0.23)" d="M594 17Q594 0 493.0 0.0Q392 0 392 17V247H252V17Q252 0 151.0 0.0Q50 0 50 17V680Q50 701 151.0 701.0Q252 701 252 680V445H392V678Q392 692 442 698Q468 700 493 700L544 698Q594 692 594 678Z" fill="#14102A" stroke="#14102A" stroke-width="156.5" stroke-linejoin="round"/><path transform="translate(332.97 280) scale(0.23 -0.23)" d="M594 17Q594 0 493.0 0.0Q392 0 392 17V247H252V17Q252 0 151.0 0.0Q50 0 50 17V680Q50 701 151.0 701.0Q252 701 252 680V445H392V678Q392 692 442 698Q468 700 493 700L544 698Q594 692 594 678Z" fill="#FFFFFF"/></g><g class="drop" style="animation-delay:0.63s"><path transform="translate(0 14) translate(481.09 280) scale(0.23 -0.23)" d="M398 667Q411 702 526 702Q555 702 594.5 698.0Q634 694 631 688L423 270V26Q423 9 368 2Q340 -2 313.0 -2.0Q286 -2 259 1Q204 8 204 26V264L-11 686Q-15 692 30.0 697.5Q75 703 106 703Q229 703 241 667L314 463Z" fill="#14102A" stroke="#14102A" stroke-width="156.5" stroke-linejoin="round"/><path transform="translate(481.09 280) scale(0.23 -0.23)" d="M398 667Q411 702 526 702Q555 702 594.5 698.0Q634 694 631 688L423 270V26Q423 9 368 2Q340 -2 313.0 -2.0Q286 -2 259 1Q204 8 204 26V264L-11 686Q-15 692 30.0 697.5Q75 703 106 703Q229 703 241 667L314 463Z" fill="#14102A" stroke="#14102A" stroke-width="156.5" stroke-linejoin="round"/><path transform="translate(481.09 280) scale(0.23 -0.23)" d="M398 667Q411 702 526 702Q555 702 594.5 698.0Q634 694 631 688L423 270V26Q423 9 368 2Q340 -2 313.0 -2.0Q286 -2 259 1Q204 8 204 26V264L-11 686Q-15 692 30.0 697.5Q75 703 106 703Q229 703 241 667L314 463Z" fill="#FFFFFF"/></g><g class="drop" style="animation-delay:0.71s"><path transform="translate(0 14) translate(622.54 280) scale(0.23 -0.23)" d="M137 -2Q46 -2 46 18V666Q46 700 77 700H253Q401 700 466.5 639.0Q532 578 532 462Q532 366 470 286Q439 246 379.0 222.0Q319 198 239 198V19Q239 7 201.5 2.5Q164 -2 137 -2ZM239 526V368H252Q287 368 311.0 390.0Q335 412 335.0 452.0Q335 492 318.5 509.0Q302 526 260 526Z" fill="#14102A" stroke="#14102A" stroke-width="156.5" stroke-linejoin="round"/><path transform="translate(622.54 280) scale(0.23 -0.23)" d="M137 -2Q46 -2 46 18V666Q46 700 77 700H253Q401 700 466.5 639.0Q532 578 532 462Q532 366 470 286Q439 246 379.0 222.0Q319 198 239 198V19Q239 7 201.5 2.5Q164 -2 137 -2ZM239 526V368H252Q287 368 311.0 390.0Q335 412 335.0 452.0Q335 492 318.5 509.0Q302 526 260 526Z" fill="#14102A" stroke="#14102A" stroke-width="156.5" stroke-linejoin="round"/><path transform="translate(622.54 280) scale(0.23 -0.23)" d="M137 -2Q46 -2 46 18V666Q46 700 77 700H253Q401 700 466.5 639.0Q532 578 532 462Q532 366 470 286Q439 246 379.0 222.0Q319 198 239 198V19Q239 7 201.5 2.5Q164 -2 137 -2ZM239 526V368H252Q287 368 311.0 390.0Q335 412 335.0 452.0Q335 492 318.5 509.0Q302 526 260 526Z" fill="#FFFFFF"/></g><g class="drop" style="animation-delay:0.79s"><path transform="translate(0 14) translate(753.64 280) scale(0.23 -0.23)" d="M375 422Q394 422 394 352Q394 331 389.5 302.5Q385 274 373 274H246V174H430Q447 174 453 130Q456 111 456.0 89.5Q456 68 450.0 34.0Q444 0 430 0H88Q50 0 50 31V674Q50 700 73 700H431Q452 700 452.0 611.5Q452 523 431 523H246V422Z" fill="#14102A" stroke="#14102A" stroke-width="156.5" stroke-linejoin="round"/><path transform="translate(753.64 280) scale(0.23 -0.23)" d="M375 422Q394 422 394 352Q394 331 389.5 302.5Q385 274 373 274H246V174H430Q447 174 453 130Q456 111 456.0 89.5Q456 68 450.0 34.0Q444 0 430 0H88Q50 0 50 31V674Q50 700 73 700H431Q452 700 452.0 611.5Q452 523 431 523H246V422Z" fill="#14102A" stroke="#14102A" stroke-width="156.5" stroke-linejoin="round"/><path transform="translate(753.64 280) scale(0.23 -0.23)" d="M375 422Q394 422 394 352Q394 331 389.5 302.5Q385 274 373 274H246V174H430Q447 174 453 130Q456 111 456.0 89.5Q456 68 450.0 34.0Q444 0 430 0H88Q50 0 50 31V674Q50 700 73 700H431Q452 700 452.0 611.5Q452 523 431 523H246V422Z" fill="#FFFFFF"/></g><g class="slide-l" style="animation-delay:0.95s"><path transform="translate(0 14) translate(354.95 470) scale(0.23 -0.23)" d="M40 59V681Q40 702 141.5 702.0Q243 702 243 681V191H397Q415 191 422 144Q425 121 425.0 97.0Q425 73 422 48Q414 0 396 0H88Q66 0 53.0 18.0Q40 36 40 59Z" fill="#14102A" stroke="#14102A" stroke-width="156.5" stroke-linejoin="round"/><path transform="translate(354.95 470) scale(0.23 -0.23)" d="M40 59V681Q40 702 141.5 702.0Q243 702 243 681V191H397Q415 191 422 144Q425 121 425.0 97.0Q425 73 422 48Q414 0 396 0H88Q66 0 53.0 18.0Q40 36 40 59Z" fill="#14102A" stroke="#14102A" stroke-width="156.5" stroke-linejoin="round"/><path transform="translate(354.95 470) scale(0.23 -0.23)" d="M40 59V681Q40 702 141.5 702.0Q243 702 243 681V191H397Q415 191 422 144Q425 121 425.0 97.0Q425 73 422 48Q414 0 396 0H88Q66 0 53.0 18.0Q40 36 40 59Z" fill="#FFFFFF"/></g><g class="slide-r" style="animation-delay:1.00s"><path transform="translate(0 14) translate(745.00 470) scale(0.23 -0.23)" d="M137 -2Q46 -2 46 18V666Q46 700 77 700H253Q401 700 466.5 639.0Q532 578 532 462Q532 366 470 286Q439 246 379.0 222.0Q319 198 239 198V19Q239 7 201.5 2.5Q164 -2 137 -2ZM239 526V368H252Q287 368 311.0 390.0Q335 412 335.0 452.0Q335 492 318.5 509.0Q302 526 260 526Z" fill="#14102A" stroke="#14102A" stroke-width="156.5" stroke-linejoin="round"/><path transform="translate(745.00 470) scale(0.23 -0.23)" d="M137 -2Q46 -2 46 18V666Q46 700 77 700H253Q401 700 466.5 639.0Q532 578 532 462Q532 366 470 286Q439 246 379.0 222.0Q319 198 239 198V19Q239 7 201.5 2.5Q164 -2 137 -2ZM239 526V368H252Q287 368 311.0 390.0Q335 412 335.0 452.0Q335 492 318.5 509.0Q302 526 260 526Z" fill="#14102A" stroke="#14102A" stroke-width="156.5" stroke-linejoin="round"/><path transform="translate(745.00 470) scale(0.23 -0.23)" d="M137 -2Q46 -2 46 18V666Q46 700 77 700H253Q401 700 466.5 639.0Q532 578 532 462Q532 366 470 286Q439 246 379.0 222.0Q319 198 239 198V19Q239 7 201.5 2.5Q164 -2 137 -2ZM239 526V368H252Q287 368 311.0 390.0Q335 412 335.0 452.0Q335 492 318.5 509.0Q302 526 260 526Z" fill="#FFFFFF"/></g><g class="inf"><path transform="translate(0 12)" d="M600 390 C640 320 730 320 730 390 C730 460 640 460 600 390 C560 320 470 320 470 390 C470 460 560 460 600 390 Z" pathLength="1" class="draw" fill="none" stroke="#14102A" stroke-width="80" stroke-linecap="round" stroke-linejoin="round"/><path d="M600 390 C640 320 730 320 730 390 C730 460 640 460 600 390 C560 320 470 320 470 390 C470 460 560 460 600 390 Z" pathLength="1" class="draw" fill="none" stroke="#14102A" stroke-width="80" stroke-linecap="round" stroke-linejoin="round"/><path d="M600 390 C640 320 730 320 730 390 C730 460 640 460 600 390 C560 320 470 320 470 390 C470 460 560 460 600 390 Z" pathLength="1" class="draw" fill="none" stroke="#FFD60A" stroke-width="44" stroke-linecap="round" stroke-linejoin="round"/></g><g class="pop" style="animation-delay:1.3s"><rect x="470" y="513" width="260" height="64" rx="32" fill="#14102A"/><rect x="470" y="505" width="260" height="64" rx="32" fill="#FFD60A" stroke="#14102A" stroke-width="10"/><path transform="translate(520.65 551) scale(0.042 -0.042)" d="M420 209 422 345Q422 359 451.0 363.5Q480 368 499 368L538 365Q576 359 576 344L572 31Q552 17 491.5 3.5Q431 -10 353 -10Q208 -10 119.0 84.0Q30 178 30 360Q30 515 117.0 612.0Q204 709 358 709Q428 709 484.5 695.5Q541 682 562 659Q563 651 563.0 629.0Q563 607 548.0 566.5Q533 526 514.0 506.0Q495 486 486.5 486.0Q478 486 468.5 493.5Q459 501 431.0 509.5Q403 518 377 518Q315 518 276.5 478.0Q238 438 238.0 354.0Q238 270 277.5 226.5Q317 183 368.5 183.0Q420 183 420 209Z" fill="#14102A"/><path transform="translate(552.74 551) scale(0.042 -0.042)" d="M520 -2Q433 -2 426 26L393 155H234L205 31Q199 0 109 0Q61 0 38.0 5.5Q15 11 15 14L192 691Q192 699 329.0 699.0Q466 699 466 691L639 13Q639 6 593.0 2.0Q547 -2 520 -2ZM259 282H364L319 489H313Z" fill="#14102A"/><path transform="translate(586.25 551) scale(0.042 -0.042)" d="M750 -1Q661 -1 661 19L640 420L518 14Q514 2 450.0 2.0Q386 2 384 13L258 424L244 25Q243 10 206.0 4.5Q169 -1 144.5 -1.0Q120 -1 97 2Q49 9 50 27L73 677Q73 701 195 701Q231 701 283.0 695.5Q335 690 341 674L453 359L551 675Q560 701 689 701Q726 701 777.5 695.5Q829 690 829 676L858 20Q858 9 819.0 4.0Q780 -1 750 -1Z" fill="#14102A"/><path transform="translate(630.34 551) scale(0.042 -0.042)" d="M375 422Q394 422 394 352Q394 331 389.5 302.5Q385 274 373 274H246V174H430Q447 174 453 130Q456 111 456.0 89.5Q456 68 450.0 34.0Q444 0 430 0H88Q50 0 50 31V674Q50 700 73 700H431Q452 700 452.0 611.5Q452 523 431 523H246V422Z" fill="#14102A"/><path transform="translate(657.05 551) scale(0.042 -0.042)" d="M76 244Q95 229 141.5 203.0Q188 177 230.5 177.0Q273 177 273 210Q273 225 261.0 236.5Q249 248 217.0 263.0Q185 278 169.0 286.5Q153 295 126.5 314.5Q100 334 86 355Q46 412 46.0 500.0Q46 588 111.5 648.5Q177 709 283 709Q355 709 416.0 693.5Q477 678 479 653Q479 650 479 647Q479 612 457.0 558.5Q435 505 426 499Q362 532 311.5 532.0Q261 532 261 496Q261 474 298 457Q306 453 321.0 446.0Q336 439 355.5 429.5Q375 420 397.5 405.5Q420 391 446 367Q499 317 499 235Q499 128 440.0 60.0Q381 -8 258 -10Q198 -10 149.5 0.0Q101 10 65.0 39.0Q29 68 29.0 109.0Q29 150 44.0 190.5Q59 231 76 244Z" fill="#14102A"/></g></g></svg>
+  <svg id="heroLogo" class="hero-logo" viewBox="292 63 617 546" role="img" aria-label="HypeLoop Games"><g transform="rotate(-4 600 330)"><g class="drop" style="animation-delay:0.55s"><path transform="translate(0 14) translate(332.97 280) scale(0.23 -0.23)" d="M594 17Q594 0 493.0 0.0Q392 0 392 17V247H252V17Q252 0 151.0 0.0Q50 0 50 17V680Q50 701 151.0 701.0Q252 701 252 680V445H392V678Q392 692 442 698Q468 700 493 700L544 698Q594 692 594 678Z" fill="#14102A" stroke="#14102A" stroke-width="156.5" stroke-linejoin="round"/><path transform="translate(332.97 280) scale(0.23 -0.23)" d="M594 17Q594 0 493.0 0.0Q392 0 392 17V247H252V17Q252 0 151.0 0.0Q50 0 50 17V680Q50 701 151.0 701.0Q252 701 252 680V445H392V678Q392 692 442 698Q468 700 493 700L544 698Q594 692 594 678Z" fill="#14102A" stroke="#14102A" stroke-width="156.5" stroke-linejoin="round"/><path transform="translate(332.97 280) scale(0.23 -0.23)" d="M594 17Q594 0 493.0 0.0Q392 0 392 17V247H252V17Q252 0 151.0 0.0Q50 0 50 17V680Q50 701 151.0 701.0Q252 701 252 680V445H392V678Q392 692 442 698Q468 700 493 700L544 698Q594 692 594 678Z" fill="#FFFFFF"/></g><g class="drop" style="animation-delay:0.63s"><path transform="translate(0 14) translate(481.09 280) scale(0.23 -0.23)" d="M398 667Q411 702 526 702Q555 702 594.5 698.0Q634 694 631 688L423 270V26Q423 9 368 2Q340 -2 313.0 -2.0Q286 -2 259 1Q204 8 204 26V264L-11 686Q-15 692 30.0 697.5Q75 703 106 703Q229 703 241 667L314 463Z" fill="#14102A" stroke="#14102A" stroke-width="156.5" stroke-linejoin="round"/><path transform="translate(481.09 280) scale(0.23 -0.23)" d="M398 667Q411 702 526 702Q555 702 594.5 698.0Q634 694 631 688L423 270V26Q423 9 368 2Q340 -2 313.0 -2.0Q286 -2 259 1Q204 8 204 26V264L-11 686Q-15 692 30.0 697.5Q75 703 106 703Q229 703 241 667L314 463Z" fill="#14102A" stroke="#14102A" stroke-width="156.5" stroke-linejoin="round"/><path transform="translate(481.09 280) scale(0.23 -0.23)" d="M398 667Q411 702 526 702Q555 702 594.5 698.0Q634 694 631 688L423 270V26Q423 9 368 2Q340 -2 313.0 -2.0Q286 -2 259 1Q204 8 204 26V264L-11 686Q-15 692 30.0 697.5Q75 703 106 703Q229 703 241 667L314 463Z" fill="#FFFFFF"/></g><g class="drop" style="animation-delay:0.71s"><path transform="translate(0 14) translate(622.54 280) scale(0.23 -0.23)" d="M137 -2Q46 -2 46 18V666Q46 700 77 700H253Q401 700 466.5 639.0Q532 578 532 462Q532 366 470 286Q439 246 379.0 222.0Q319 198 239 198V19Q239 7 201.5 2.5Q164 -2 137 -2ZM239 526V368H252Q287 368 311.0 390.0Q335 412 335.0 452.0Q335 492 318.5 509.0Q302 526 260 526Z" fill="#14102A" stroke="#14102A" stroke-width="156.5" stroke-linejoin="round"/><path transform="translate(622.54 280) scale(0.23 -0.23)" d="M137 -2Q46 -2 46 18V666Q46 700 77 700H253Q401 700 466.5 639.0Q532 578 532 462Q532 366 470 286Q439 246 379.0 222.0Q319 198 239 198V19Q239 7 201.5 2.5Q164 -2 137 -2ZM239 526V368H252Q287 368 311.0 390.0Q335 412 335.0 452.0Q335 492 318.5 509.0Q302 526 260 526Z" fill="#14102A" stroke="#14102A" stroke-width="156.5" stroke-linejoin="round"/><path transform="translate(622.54 280) scale(0.23 -0.23)" d="M137 -2Q46 -2 46 18V666Q46 700 77 700H253Q401 700 466.5 639.0Q532 578 532 462Q532 366 470 286Q439 246 379.0 222.0Q319 198 239 198V19Q239 7 201.5 2.5Q164 -2 137 -2ZM239 526V368H252Q287 368 311.0 390.0Q335 412 335.0 452.0Q335 492 318.5 509.0Q302 526 260 526Z" fill="#FFFFFF"/></g><g class="drop" style="animation-delay:0.79s"><path transform="translate(0 14) translate(753.64 280) scale(0.23 -0.23)" d="M375 422Q394 422 394 352Q394 331 389.5 302.5Q385 274 373 274H246V174H430Q447 174 453 130Q456 111 456.0 89.5Q456 68 450.0 34.0Q444 0 430 0H88Q50 0 50 31V674Q50 700 73 700H431Q452 700 452.0 611.5Q452 523 431 523H246V422Z" fill="#14102A" stroke="#14102A" stroke-width="156.5" stroke-linejoin="round"/><path transform="translate(753.64 280) scale(0.23 -0.23)" d="M375 422Q394 422 394 352Q394 331 389.5 302.5Q385 274 373 274H246V174H430Q447 174 453 130Q456 111 456.0 89.5Q456 68 450.0 34.0Q444 0 430 0H88Q50 0 50 31V674Q50 700 73 700H431Q452 700 452.0 611.5Q452 523 431 523H246V422Z" fill="#14102A" stroke="#14102A" stroke-width="156.5" stroke-linejoin="round"/><path transform="translate(753.64 280) scale(0.23 -0.23)" d="M375 422Q394 422 394 352Q394 331 389.5 302.5Q385 274 373 274H246V174H430Q447 174 453 130Q456 111 456.0 89.5Q456 68 450.0 34.0Q444 0 430 0H88Q50 0 50 31V674Q50 700 73 700H431Q452 700 452.0 611.5Q452 523 431 523H246V422Z" fill="#FFFFFF"/></g><g class="slide-l" style="animation-delay:0.95s"><path transform="translate(0 14) translate(354.95 470) scale(0.23 -0.23)" d="M40 59V681Q40 702 141.5 702.0Q243 702 243 681V191H397Q415 191 422 144Q425 121 425.0 97.0Q425 73 422 48Q414 0 396 0H88Q66 0 53.0 18.0Q40 36 40 59Z" fill="#14102A" stroke="#14102A" stroke-width="156.5" stroke-linejoin="round"/><path transform="translate(354.95 470) scale(0.23 -0.23)" d="M40 59V681Q40 702 141.5 702.0Q243 702 243 681V191H397Q415 191 422 144Q425 121 425.0 97.0Q425 73 422 48Q414 0 396 0H88Q66 0 53.0 18.0Q40 36 40 59Z" fill="#14102A" stroke="#14102A" stroke-width="156.5" stroke-linejoin="round"/><path transform="translate(354.95 470) scale(0.23 -0.23)" d="M40 59V681Q40 702 141.5 702.0Q243 702 243 681V191H397Q415 191 422 144Q425 121 425.0 97.0Q425 73 422 48Q414 0 396 0H88Q66 0 53.0 18.0Q40 36 40 59Z" fill="#FFFFFF"/></g><g class="slide-r" style="animation-delay:1.00s"><path transform="translate(0 14) translate(745.00 470) scale(0.23 -0.23)" d="M137 -2Q46 -2 46 18V666Q46 700 77 700H253Q401 700 466.5 639.0Q532 578 532 462Q532 366 470 286Q439 246 379.0 222.0Q319 198 239 198V19Q239 7 201.5 2.5Q164 -2 137 -2ZM239 526V368H252Q287 368 311.0 390.0Q335 412 335.0 452.0Q335 492 318.5 509.0Q302 526 260 526Z" fill="#14102A" stroke="#14102A" stroke-width="156.5" stroke-linejoin="round"/><path transform="translate(745.00 470) scale(0.23 -0.23)" d="M137 -2Q46 -2 46 18V666Q46 700 77 700H253Q401 700 466.5 639.0Q532 578 532 462Q532 366 470 286Q439 246 379.0 222.0Q319 198 239 198V19Q239 7 201.5 2.5Q164 -2 137 -2ZM239 526V368H252Q287 368 311.0 390.0Q335 412 335.0 452.0Q335 492 318.5 509.0Q302 526 260 526Z" fill="#14102A" stroke="#14102A" stroke-width="156.5" stroke-linejoin="round"/><path transform="translate(745.00 470) scale(0.23 -0.23)" d="M137 -2Q46 -2 46 18V666Q46 700 77 700H253Q401 700 466.5 639.0Q532 578 532 462Q532 366 470 286Q439 246 379.0 222.0Q319 198 239 198V19Q239 7 201.5 2.5Q164 -2 137 -2ZM239 526V368H252Q287 368 311.0 390.0Q335 412 335.0 452.0Q335 492 318.5 509.0Q302 526 260 526Z" fill="#FFFFFF"/></g><g class="inf"><path transform="translate(0 12)" d="M600 390 C640 320 730 320 730 390 C730 460 640 460 600 390 C560 320 470 320 470 390 C470 460 560 460 600 390 Z" pathLength="1" class="draw" fill="none" stroke="#14102A" stroke-width="80" stroke-linecap="round" stroke-linejoin="round"/><path d="M600 390 C640 320 730 320 730 390 C730 460 640 460 600 390 C560 320 470 320 470 390 C470 460 560 460 600 390 Z" pathLength="1" class="draw" fill="none" stroke="#14102A" stroke-width="80" stroke-linecap="round" stroke-linejoin="round"/><path d="M600 390 C640 320 730 320 730 390 C730 460 640 460 600 390 C560 320 470 320 470 390 C470 460 560 460 600 390 Z" pathLength="1" class="draw" fill="none" stroke="#FFD60A" stroke-width="44" stroke-linecap="round" stroke-linejoin="round"/></g><g class="pop" style="animation-delay:1.3s"><rect x="470" y="513" width="260" height="64" rx="32" fill="#14102A"/><rect x="470" y="505" width="260" height="64" rx="32" fill="#FFD60A" stroke="#14102A" stroke-width="10"/><path transform="translate(520.65 551) scale(0.042 -0.042)" d="M420 209 422 345Q422 359 451.0 363.5Q480 368 499 368L538 365Q576 359 576 344L572 31Q552 17 491.5 3.5Q431 -10 353 -10Q208 -10 119.0 84.0Q30 178 30 360Q30 515 117.0 612.0Q204 709 358 709Q428 709 484.5 695.5Q541 682 562 659Q563 651 563.0 629.0Q563 607 548.0 566.5Q533 526 514.0 506.0Q495 486 486.5 486.0Q478 486 468.5 493.5Q459 501 431.0 509.5Q403 518 377 518Q315 518 276.5 478.0Q238 438 238.0 354.0Q238 270 277.5 226.5Q317 183 368.5 183.0Q420 183 420 209Z" fill="#14102A"/><path transform="translate(552.74 551) scale(0.042 -0.042)" d="M520 -2Q433 -2 426 26L393 155H234L205 31Q199 0 109 0Q61 0 38.0 5.5Q15 11 15 14L192 691Q192 699 329.0 699.0Q466 699 466 691L639 13Q639 6 593.0 2.0Q547 -2 520 -2ZM259 282H364L319 489H313Z" fill="#14102A"/><path transform="translate(586.25 551) scale(0.042 -0.042)" d="M750 -1Q661 -1 661 19L640 420L518 14Q514 2 450.0 2.0Q386 2 384 13L258 424L244 25Q243 10 206.0 4.5Q169 -1 144.5 -1.0Q120 -1 97 2Q49 9 50 27L73 677Q73 701 195 701Q231 701 283.0 695.5Q335 690 341 674L453 359L551 675Q560 701 689 701Q726 701 777.5 695.5Q829 690 829 676L858 20Q858 9 819.0 4.0Q780 -1 750 -1Z" fill="#14102A"/><path transform="translate(630.34 551) scale(0.042 -0.042)" d="M375 422Q394 422 394 352Q394 331 389.5 302.5Q385 274 373 274H246V174H430Q447 174 453 130Q456 111 456.0 89.5Q456 68 450.0 34.0Q444 0 430 0H88Q50 0 50 31V674Q50 700 73 700H431Q452 700 452.0 611.5Q452 523 431 523H246V422Z" fill="#14102A"/><path transform="translate(657.05 551) scale(0.042 -0.042)" d="M76 244Q95 229 141.5 203.0Q188 177 230.5 177.0Q273 177 273 210Q273 225 261.0 236.5Q249 248 217.0 263.0Q185 278 169.0 286.5Q153 295 126.5 314.5Q100 334 86 355Q46 412 46.0 500.0Q46 588 111.5 648.5Q177 709 283 709Q355 709 416.0 693.5Q477 678 479 653Q479 650 479 647Q479 612 457.0 558.5Q435 505 426 499Q362 532 311.5 532.0Q261 532 261 496Q261 474 298 457Q306 453 321.0 446.0Q336 439 355.5 429.5Q375 420 397.5 405.5Q420 391 446 367Q499 317 499 235Q499 128 440.0 60.0Q381 -8 258 -10Q198 -10 149.5 0.0Q101 10 65.0 39.0Q29 68 29.0 109.0Q29 150 44.0 190.5Q59 231 76 244Z" fill="#14102A"/></g></g></svg>
   <h1 class="tagline chunky">Roblox games that don't stop.</h1>
-  <p class="sub">We're a crew building fast, chaotic, replayable Roblox games. Join the group to play every new drop first.</p>
+  <p class="sub">HypeLoop is an independent Roblox studio making fast, social games that are fair to play. Catch &amp; Steal is live now, Football Ultimate is next.</p>
   <div class="cta">
    <a class="btn" data-burst href="https://www.roblox.com/communities/856897138/HypeLoop" target="_blank" rel="noopener">Join on Roblox</a>
+   <a class="btn white" href="#games">See our games</a>
   </div>
  </div>
  <div class="scroll-hint">SCROLL</div>
@@ -206,7 +281,89 @@ footer{background:var(--ink);color:#B9B0D6;padding:34px 0;font-size:14px}
 
 <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marq"></div></div>
 
-<svg style="margin-top:40px;margin-bottom:-1px" class="wave" viewBox="0 0 1440 46" preserveAspectRatio="none" aria-hidden="true"><path d="M0 46 L0 22 Q30 4 60 22 T120 22 Q150 40 180 22 T240 22 Q270 4 300 22 T360 22 Q390 40 420 22 T480 22 Q510 4 540 22 T600 22 Q630 40 660 22 T720 22 Q750 4 780 22 T840 22 Q870 40 900 22 T960 22 Q990 4 1020 22 T1080 22 Q1110 40 1140 22 T1200 22 Q1230 4 1260 22 T1320 22 Q1350 40 1380 22 T1440 22 L1440 46 Z" fill="#4615B0"/><path d="M0 46 L0 22 Q30 4 60 22 T120 22 Q150 40 180 22 T240 22 Q270 4 300 22 T360 22 Q390 40 420 22 T480 22 Q510 4 540 22 T600 22 Q630 40 660 22 T720 22 Q750 4 780 22 T840 22 Q870 40 900 22 T960 22 Q990 4 1020 22 T1080 22 Q1110 40 1140 22 T1200 22 Q1230 4 1260 22 T1320 22 Q1350 40 1380 22 T1440 22" fill="none" stroke="#14102A" stroke-width="5" vector-effect="non-scaling-stroke"/></svg>
+
+<section class="games" id="games">
+ <div class="wrap">
+  <div class="reveal"><span class="kicker">OUR GAMES</span>
+  <h2 class="sec-title chunky">Pick your game</h2>
+  <p class="sec-sub">One studio, one loop. Every game gets regular updates and group perks.</p></div>
+  <div class="grid">
+   <article class="card reveal">
+    <div class="card-art"><span class="badge live">LIVE NOW</span>
+     <svg viewBox="0 0 120 80" aria-hidden="true"><g stroke="#14102A" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"><path d="M18 40 L4 24 V56 Z" fill="#FFD60A"/><path d="M18 40 C30 14 80 10 104 40 C80 70 30 66 18 40 Z" fill="#FFD60A"/><path d="M54 22 C60 34 60 46 54 58" fill="none"/><circle cx="88" cy="36" r="4" fill="#14102A"/></g></svg></div>
+    <div class="card-body">
+     <h3>Catch &amp; Steal</h3>
+     <p>Catch rare fish, show them off in your aquarium for cash every second, and sneak into other bases to steal theirs.</p>
+     <a class="btn card-btn" data-burst href="https://www.roblox.com/communities/856897138/HypeLoop" target="_blank" rel="noopener">Play on Roblox</a>
+    </div>
+   </article>
+   <article class="card reveal">
+    <div class="card-art"><span class="badge soon">COMING SOON</span>
+     <svg viewBox="0 0 100 100" aria-hidden="true"><g stroke="#14102A" stroke-width="5" stroke-linejoin="round"><circle cx="50" cy="50" r="40" fill="#FFFFFF"/><polygon points="50,34 65,45 59,62 41,62 35,45" fill="#14102A"/><path d="M50 34 V12 M65 45 L86 38 M59 62 L72 80 M41 62 L28 80 M35 45 L14 38" fill="none"/></g></svg></div>
+    <div class="card-body">
+     <h3>Football Ultimate</h3>
+     <p>Fast football matches with your friends. Jump in, team up and score in seconds. In development now.</p>
+     <a class="btn white card-btn" data-burst href="https://www.roblox.com/communities/856897138/HypeLoop" target="_blank" rel="noopener">Join to play first</a>
+    </div>
+   </article>
+  </div>
+ </div>
+</section>
+
+<section class="about" id="about">
+ <div class="wrap about-grid">
+  <div class="reveal">
+   <span class="kicker">ABOUT US</span>
+   <h2 class="sec-title chunky">Who we are</h2>
+   <p class="lead">HypeLoop is an independent game studio on Roblox, founded in 2026 by two game makers who grew up playing the games we now build.</p>
+   <p>We are small on purpose. Every game has one owner who designs it, builds it and stays with it after launch. That keeps decisions fast and quality high, and it means the people reading your feedback are the same people shipping the next update.</p>
+   <p>We build in public with our community. Group members test new features early, vote on ideas and see their suggestions show up in the games.</p>
+  </div>
+  <div class="facts reveal">
+   <div class="fact"><span class="fact-n">2</span><span class="fact-t">Founders, each leading their own game</span></div>
+   <div class="fact"><span class="fact-n">2</span><span class="fact-t">Games: one live, one in development</span></div>
+   <div class="fact"><span class="fact-n">1</span><span class="fact-t">Community behind every game we make</span></div>
+   <div class="fact"><span class="fact-n">&#8734;</span><span class="fact-t">Updates. Launch is the start, not the finish</span></div>
+  </div>
+ </div>
+</section>
+
+<section class="vision">
+ <div class="wrap reveal">
+  <span class="kicker yellow">OUR VISION</span>
+  <p class="vision-quote">Build the Roblox games people come back to every day, not because they have to, but because they <span class="hl">want to</span>.</p>
+  <p class="vision-sub">Our goal is a family of games under one community. Each one easy to start, hard to put down and fair to everyone who plays it. One account, one group, one loop that keeps getting better.</p>
+ </div>
+</section>
+
+<section class="principles" id="principles">
+ <div class="wrap">
+  <div class="reveal"><span class="kicker">HOW WE BUILD</span>
+  <h2 class="sec-title chunky">Our promises to players</h2>
+  <p class="sec-sub">These rules apply to every HypeLoop game. If we ever break one, call us out.</p></div>
+  <div class="grid grid-4">
+   <div class="pcard reveal"><div class="perk-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z" fill="none" stroke="#14102A" stroke-width="2.6" stroke-linejoin="round"/></svg></div><h3 class="display">Fair to play</h3><p>Paid items never decide who wins. Anything random you can buy shows its odds up front.</p></div>
+   <div class="pcard reveal"><div class="perk-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="#14102A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></g></svg></div><h3 class="display">No pressure</h3><p>No fake countdowns, no tricks to make you spend, no rewards for likes or favorites.</p></div>
+   <div class="pcard reveal"><div class="perk-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="#14102A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></g></svg></div><h3 class="display">Regular updates</h3><p>New content, events and fixes on a steady schedule. A game is never finished at launch.</p></div>
+   <div class="pcard reveal"><div class="perk-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="#14102A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 10h8"/></g></svg></div><h3 class="display">We listen</h3><p>Feedback from the community shapes what we fix and build next. Group members get a vote.</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="roadmap" id="roadmap">
+ <div class="wrap">
+  <div class="reveal"><span class="kicker">ROADMAP</span>
+  <h2 class="sec-title chunky">Where we're headed</h2>
+  <p class="sec-sub">No fake dates. Here is what we are working on, in order.</p></div>
+  <ol class="steps">
+   <li class="step reveal"><span class="step-tag now">NOW</span><h3 class="display">Catch &amp; Steal</h3><p>Live on Roblox. Bigger world, new zones, server events and weekly updates.</p></li>
+   <li class="step reveal"><span class="step-tag next">NEXT</span><h3 class="display">Football Ultimate</h3><p>Quick matches with friends, a real-feeling ball and your own club. Group members play it first.</p></li>
+   <li class="step reveal"><span class="step-tag later">LATER</span><h3 class="display">Game number three</h3><p>The community helps pick it. Join the group to get a vote.</p></li>
+  </ol>
+ </div>
+</section>
+
+<svg style="margin-bottom:-1px" class="wave" viewBox="0 0 1440 46" preserveAspectRatio="none" aria-hidden="true"><path d="M0 46 L0 22 Q30 4 60 22 T120 22 Q150 40 180 22 T240 22 Q270 4 300 22 T360 22 Q390 40 420 22 T480 22 Q510 4 540 22 T600 22 Q630 40 660 22 T720 22 Q750 4 780 22 T840 22 Q870 40 900 22 T960 22 Q990 4 1020 22 T1080 22 Q1110 40 1140 22 T1200 22 Q1230 4 1260 22 T1320 22 Q1350 40 1380 22 T1440 22 L1440 46 Z" fill="#4615B0"/><path d="M0 46 L0 22 Q30 4 60 22 T120 22 Q150 40 180 22 T240 22 Q270 4 300 22 T360 22 Q390 40 420 22 T480 22 Q510 4 540 22 T600 22 Q630 40 660 22 T720 22 Q750 4 780 22 T840 22 Q870 40 900 22 T960 22 Q990 4 1020 22 T1080 22 Q1110 40 1140 22 T1200 22 Q1230 4 1260 22 T1320 22 Q1350 40 1380 22 T1440 22" fill="none" stroke="#14102A" stroke-width="5" vector-effect="non-scaling-stroke"/></svg>
 <section class="perks" id="perks">
  <div class="wrap">
   <div class="reveal"><span class="kicker">WHY JOIN</span>
@@ -214,13 +371,28 @@ footer{background:var(--ink);color:#B9B0D6;padding:34px 0;font-size:14px}
   <p class="sec-sub">Group members aren't just players. You shape what we build next.</p></div>
   <div class="grid">
    <div class="perk reveal"><div class="perk-top"><div class="perk-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="#14102A"/></svg></div><div class="num">01</div></div><h3 class="display">Play first</h3><p>Every new game opens to group members before anyone else.</p></div>
-   <div class="perk reveal"><div class="perk-top"><div class="perk-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="#14102A" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"><rect x="3.5" y="9" width="17" height="11.5" rx="1.5"/><path d="M2.5 9h19M12 9v11.5M12 9c-1.5-3.5-6-4.5-6-2s3.5 2 6 2c2.5 0 6 .5 6-2s-4.5-1.5-6 2"/></g></svg></div><div class="num">02</div></div><h3 class="display">Group-only rewards</h3><p>Exclusive items and perks inside every Hypeloop game.</p></div>
+   <div class="perk reveal"><div class="perk-top"><div class="perk-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="#14102A" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"><rect x="3.5" y="9" width="17" height="11.5" rx="1.5"/><path d="M2.5 9h19M12 9v11.5M12 9c-1.5-3.5-6-4.5-6-2s3.5 2 6 2c2.5 0 6 .5 6-2s-4.5-1.5-6 2"/></g></svg></div><div class="num">02</div></div><h3 class="display">Group-only rewards</h3><p>Exclusive items and perks inside every HypeLoop game.</p></div>
    <div class="perk reveal"><div class="perk-top"><div class="perk-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="#14102A" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="3"/><path d="M8 12.5l3 3 5.5-6.5"/></g></svg></div><div class="num">03</div></div><h3 class="display">Vote on what's next</h3><p>Pick the next game idea, test builds and get your name in the credits.</p></div>
   </div>
  </div>
 </section>
 
 <svg class="wave" style="transform:scaleY(-1);margin-top:-1px" viewBox="0 0 1440 46" preserveAspectRatio="none" aria-hidden="true"><path d="M0 46 L0 22 Q30 4 60 22 T120 22 Q150 40 180 22 T240 22 Q270 4 300 22 T360 22 Q390 40 420 22 T480 22 Q510 4 540 22 T600 22 Q630 40 660 22 T720 22 Q750 4 780 22 T840 22 Q870 40 900 22 T960 22 Q990 4 1020 22 T1080 22 Q1110 40 1140 22 T1200 22 Q1230 4 1260 22 T1320 22 Q1350 40 1380 22 T1440 22 L1440 46 Z" fill="#4615B0"/><path d="M0 46 L0 22 Q30 4 60 22 T120 22 Q150 40 180 22 T240 22 Q270 4 300 22 T360 22 Q390 40 420 22 T480 22 Q510 4 540 22 T600 22 Q630 40 660 22 T720 22 Q750 4 780 22 T840 22 Q870 40 900 22 T960 22 Q990 4 1020 22 T1080 22 Q1110 40 1140 22 T1200 22 Q1230 4 1260 22 T1320 22 Q1350 40 1380 22 T1440 22" fill="none" stroke="#14102A" stroke-width="5" vector-effect="non-scaling-stroke"/></svg>
+
+<section class="faq" id="faq">
+ <div class="wrap faq-wrap">
+  <div class="reveal"><span class="kicker">FAQ</span>
+  <h2 class="sec-title chunky">Questions</h2></div>
+  <div class="faq-list reveal">
+   <details><summary>Are HypeLoop games free to play?</summary><p>Yes. Every game is free on Roblox. Optional purchases exist, but you can play, progress and win without them.</p></details>
+   <details><summary>How do I join the HypeLoop group?</summary><p>Open our community page on Roblox and press Join. It is free and instant. Members get in-game perks and early access to new games.</p></details>
+   <details><summary>What do group members get?</summary><p>Group-only rewards inside our games (for example extra income and free daily items in Catch &amp; Steal), early access to new games and a vote on what we build next.</p></details>
+   <details><summary>When does Football Ultimate come out?</summary><p>When it is fun enough to be worth your time. We do not announce dates we cannot keep. Group members will hear first and get to play first.</p></details>
+   <details><summary>Where can I follow updates?</summary><p>Join the Roblox group and follow us on TikTok at @hypeloopgames for clips, sneak peeks and update news.</p></details>
+   <details><summary>Is HypeLoop part of Roblox?</summary><p>No. We are an independent studio that makes games on the Roblox platform. We are not affiliated with or endorsed by Roblox Corporation.</p></details>
+  </div>
+ </div>
+</section>
 
 <section class="join">
  <div class="wrap reveal">
@@ -231,16 +403,33 @@ footer{background:var(--ink);color:#B9B0D6;padding:34px 0;font-size:14px}
    <path class="run" d="M256 256 C308 166 426 166 426 256 C426 346 308 346 256 256 C204 166 86 166 86 256 C86 346 204 346 256 256 Z" pathLength="1" stroke="#FFF3A6" stroke-width="58"/>
    <path class="spark-run" d="M256 256 C308 166 426 166 426 256 C426 346 308 346 256 256 C204 166 86 166 86 256 C86 346 204 346 256 256 Z" pathLength="1" stroke="#FFFFFF" stroke-width="30"/></g></svg>
   <h2 class="sec-title chunky">Join the loop.</h2>
-  <p class="sec-sub">Our first game is in the works. Join the group and you'll be the first to play it.</p>
+  <p class="sec-sub">Play Catch &amp; Steal today and be first in line when Football Ultimate drops.</p>
   <div class="socials">
    <a class="btn" data-burst href="https://www.roblox.com/communities/856897138/HypeLoop" target="_blank" rel="noopener">Join the group on Roblox</a>
+   <a class="btn white" href="https://www.tiktok.com/@hypeloopgames" target="_blank" rel="noopener">Follow on TikTok</a>
   </div>
  </div>
 </section>
 
 <footer>
+ <div class="wrap foot-top">
+  <div class="foot-brand">
+   <span class="foot-name">HYPELOOP GAMES</span>
+   <p>Independent Roblox studio. Fast, fair, social games built with our community.</p>
+  </div>
+  <div class="foot-col">
+   <span class="foot-h">Studio</span>
+   <a href="#games">Games</a><a href="#about">About us</a><a href="#roadmap">Roadmap</a><a href="#faq">FAQ</a>
+  </div>
+  <div class="foot-col">
+   <span class="foot-h">Community</span>
+   <a href="https://www.roblox.com/communities/856897138/HypeLoop" target="_blank" rel="noopener">Roblox group</a>
+   <a href="https://www.tiktok.com/@hypeloopgames" target="_blank" rel="noopener">TikTok</a>
+  </div>
+ </div>
  <div class="wrap foot">
-  <span>&copy; <span id="yr">2026</span> Hypeloop Games</span>
+  <span>&copy; <span id="yr">2026</span> HypeLoop Games</span>
+  <span class="foot-legal"><a href="privacy.html">Privacy</a></span>
   <span>Not affiliated with or endorsed by Roblox Corporation.</span>
  </div>
 </footer>
